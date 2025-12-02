@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISG Buyers Guide Program Scale-Up - Renae Christie</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        nav {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            padding: 0.5rem 1.5rem;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #4a7c59;
+            transform: translateY(-2px);
+        }
+
+        .back-link {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .back-link a {
+            color: #4a7c59;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        .project-hero {
+            background: white;
+            padding: 4rem 2rem;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .project-hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #1a2f1a;
+        }
+
+        .project-meta {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .meta-label {
+            font-size: 0.85rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .meta-value {
+            font-size: 1.1rem;
+            color: #4a7c59;
+            font-weight: 500;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: #e9ecef;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #495057;
+        }
+
+        .content-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+        }
+
+        .main-content h2 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+        }
+
+        .main-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .main-content p {
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+
+        .main-content ul {
+            margin-bottom: 1.5rem;
+            margin-left: 2rem;
+        }
+
+        .main-content li {
+            margin-bottom: 0.5rem;
+            color: #555;
+        }
+
+        .sidebar {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+
+        .sidebar h3 {
+            color: #4a7c59;
+            margin-bottom: 1rem;
+        }
+
+        .sidebar .stat {
+            margin-bottom: 1.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #4a7c59;
+        }
+
+        .image-showcase {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 400px;
+            background: #e9ecef;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .image-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .image-caption {
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #1a2f1a;
+            color: white;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 968px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+            }
+
+            .project-hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#projects">Projects</a></li>
+            <li><a href="index.html#skills">Skills</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="back-link">
+        <a href="index.html#projects">← Back to Projects</a>
+    </div>
+
+    <div class="project-hero">
+        <div class="project-hero-content">
+            <h1>ISG Buyers Guide Program Scale-Up</h1>
+            
+            <div class="project-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Timeline</span>
+                    <span class="meta-value">Ongoing (2024-Present)</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Role</span>
+                    <span class="meta-value">Senior Research Program Manager</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Company</span>
+                    <span class="meta-value">ISG</span>
+                </div>
+            </div>
+
+            <div class="project-tags">
+                <span class="tag">Program Management</span>
+                <span class="tag">Process Optimization</span>
+                <span class="tag">Stakeholder Management</span>
+                <span class="tag">Quality Assurance</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <div class="content-grid">
+            <div class="main-content">
+                <h2>Overview</h2>
+                <p>Led ISG's Buyers Guide programs from strategy through publication, managing complex timelines, multiple stakeholder groups, analyst deliverables, and standardized procedures. Through systematic operational optimization and process standardization, achieved a 252% year-over-year increase in program output while maintaining rigorous quality standards and stakeholder alignment.</p>
+
+                <h2>The Challenge</h2>
+                <p>ISG's Buyers Guide program was facing scaling challenges as demand for research outputs increased. The existing processes were not designed to handle the volume of work required, leading to:</p>
+                <ul>
+                    <li>Inconsistent delivery timelines and quality standards across programs</li>
+                    <li>Lack of standardized procedures creating inefficiencies</li>
+                    <li>Limited visibility into project status and resource allocation</li>
+                    <li>Coordination difficulties across research, editorial, and product teams</li>
+                    <li>Analyst deliverables not aligned with publication requirements</li>
+                    <li>Need to triple output capacity without proportional resource increases</li>
+                </ul>
+
+                <h2>Strategic Approach</h2>
+                <p>I developed and implemented a comprehensive program management framework that focused on three key pillars:</p>
+
+                <p><strong>1. Process Standardization</strong></p>
+                <ul>
+                    <li>Created standardized workflows for each phase of the Buyers Guide lifecycle</li>
+                    <li>Developed templates and checklists to ensure consistency across all programs</li>
+                    <li>Established clear quality gates and approval processes</li>
+                    <li>Documented standard operating procedures (SOPs) for repeatable tasks</li>
+                    <li>Implemented version control and change management protocols</li>
+                </ul>
+
+                <p><strong>2. Stakeholder Coordination & Communication</strong></p>
+                <ul>
+                    <li>Designed stakeholder communication framework with defined touchpoints</li>
+                    <li>Established regular status updates and review cadences</li>
+                    <li>Created escalation paths for issue resolution</li>
+                    <li>Built alignment mechanisms between research analysts and editorial teams</li>
+                    <li>Implemented feedback loops for continuous improvement</li>
+                </ul>
+
+                <p><strong>3. Operational Optimization</strong></p>
+                <ul>
+                    <li>Analyzed existing workflows to identify bottlenecks and inefficiencies</li>
+                    <li>Redesigned processes to eliminate redundant steps</li>
+                    <li>Automated manual tasks where possible</li>
+                    <li>Created capacity planning models to optimize resource allocation</li>
+                    <li>Implemented metrics tracking to monitor performance and identify improvement areas</li>
+                </ul>
+
+                <div class="image-showcase">
+                    <div class="image-placeholder">
+                        <img src="https://via.placeholder.com/1000x400/4a7c59/ffffff?text=Program+Workflow+Diagram" alt="Program Workflow">
+                    </div>
+                    <p class="image-caption">Standardized Buyers Guide program workflow from initiation to publication</p>
+                </div>
+
+                <h2>Program Management Methodology</h2>
+                <p>I employed a hybrid Agile/Waterfall methodology tailored to the nature of research programs:</p>
+
+                <p><strong>Waterfall Elements:</strong> Used for overall program structure with defined phases (research, analysis, drafting, review, publication) that must occur sequentially.</p>
+
+                <p><strong>Agile Elements:</strong> Incorporated iterative review cycles, regular standups with stakeholders, and sprint-like publication batches to maintain flexibility and responsiveness.</p>
+
+                <p>This hybrid approach allowed us to maintain the necessary structure for research quality while staying agile enough to accommodate changing priorities and stakeholder needs.</p>
+
+                <h2>Key Initiatives Implemented</h2>
+
+                <p><strong>Standardized Project Management Framework:</strong> Created comprehensive project management toolkit including intake forms, project charters, timeline templates, status report formats, and risk registers. This toolkit ensured every program followed consistent processes regardless of which team members were involved.</p>
+
+                <p><strong>Quality Assurance System:</strong> Developed multi-level quality review process with clear criteria at each stage. This included peer reviews, editorial reviews, and final stakeholder sign-offs, ensuring accuracy and consistency before publication.</p>
+
+                <p><strong>Resource Optimization Model:</strong> Built capacity planning system that matched analyst expertise with program requirements, optimized workload distribution, and identified when additional resources were needed before bottlenecks occurred.</p>
+
+                <div class="image-showcase">
+                    <div class="image-placeholder">
+                        <img src="https://via.placeholder.com/1000x400/4a7c59/ffffff?text=Output+Growth+Chart" alt="Output Growth">
+                    </div>
+                    <p class="image-caption">Year-over-year program output growth showing 252% increase</p>
+                </div>
+
+                <h2>Cross-Functional Collaboration</h2>
+                <p>Success required seamless coordination across multiple teams:</p>
+
+                <p><strong>Research Team Alignment:</strong> Worked closely with research analysts to understand their workflows and ensure deliverables met publication requirements. Created feedback mechanisms to continuously improve the handoff between research and editorial phases.</p>
+
+                <p><strong>Editorial Partnership:</strong> Partnered with editorial team to streamline review processes and reduce revision cycles. Established clear style guides and formatting standards that analysts could follow from the start.</p>
+
+                <p><strong>Product Team Integration:</strong> Collaborated with product team to ensure programs aligned with overall product strategy and go-to-market plans. Provided input on product roadmap based on program insights and market feedback.</p>
+
+                <h2>Results & Impact</h2>
+                <p>The operational transformation delivered exceptional results:</p>
+                <ul>
+                    <li><strong>252% year-over-year increase in program output</strong> - tripled capacity through process optimization</li>
+                    <li><strong>100% on-time delivery rate</strong> for client deliverables</li>
+                    <li><strong>Maintained quality standards</strong> throughout scaling - no degradation in research quality</li>
+                    <li><strong>Improved stakeholder satisfaction</strong> through better communication and predictability</li>
+                    <li><strong>Reduced publication cycle time</strong> through streamlined workflows</li>
+                    <li><strong>Enhanced team efficiency</strong> by eliminating redundant tasks and bottlenecks</li>
+                    <li><strong>Created scalable foundation</strong> for continued growth without proportional resource increases</li>
+                </ul>
+
+                <h2>Integration of Ventana Research</h2>
+                <p>As part of this program management role, I led the integration of Ventana Research's offerings into ISG's product portfolio following the acquisition. This involved:</p>
+                <ul>
+                    <li>Analyzing Ventana's research methodologies and formats</li>
+                    <li>Aligning Ventana processes with ISG standards while preserving quality</li>
+                    <li>Creating unified go-to-market approach for combined portfolio</li>
+                    <li>Training teams on integrated workflows and processes</li>
+                    <li>Ensuring seamless experience for clients accessing both ISG and Ventana content</li>
+                </ul>
+
+                <h2>Ongoing Program Evolution</h2>
+                <p>The program continues to evolve based on organizational needs and market demands:</p>
+                <ul>
+                    <li>Regular retrospectives to identify improvement opportunities</li>
+                    <li>Continuous refinement of processes based on team feedback</li>
+                    <li>Expansion of standardization to new program types</li>
+                    <li>Development of advanced metrics and reporting capabilities</li>
+                    <li>Integration with new tools and platforms to further enhance efficiency</li>
+                </ul>
+
+                <h2>Key Learnings</h2>
+                
+                <p><strong>Standardization enables scale:</strong> Creating consistent processes and templates was foundational to achieving the 252% growth. Without standardization, we would have needed to triple headcount to achieve the same output.</p>
+
+                <p><strong>Quality and speed are not mutually exclusive:</strong> By building quality checks into streamlined processes rather than treating them as separate activities, we improved both quality and speed simultaneously.</p>
+
+                <p><strong>Stakeholder communication is critical:</strong> Regular, structured communication with all stakeholders prevented misalignment and reduced last-minute changes that would have derailed timelines.</p>
+
+                <p><strong>Data-driven decisions improve outcomes:</strong> Implementing robust tracking and metrics allowed us to identify bottlenecks early and make informed decisions about where to focus optimization efforts.</p>
+            </div>
+
+            <aside class="sidebar">
+                <h3>Key Metrics</h3>
+                
+                <div class="stat">
+                    <div class="stat-label">Output Increase YoY</div>
+                    <div class="stat-value">252%</div>
+                </div>
+
+                <div class="stat">
+                    <div class="stat-label">On-Time Delivery</div>
+                    <div class="stat-value">100%</div>
+                </div>
+
+                <div class="stat">
+                    <div class="stat-label">Programs Managed</div>
+                    <div class="stat-value">Multiple</div>
+                </div>
+
+                <h3 style="margin-top: 2rem;">Skills Applied</h3>
+                <ul style="list-style: none; margin-left: 0;">
+                    <li style="padding: 0.5rem 0;">• Program Management</li>
+                    <li style="padding: 0.5rem 0;">• Process Optimization</li>
+                    <li style="padding: 0.5rem 0;">• Agile/Waterfall</li>
+                    <li style="padding: 0.5rem 0;">• Stakeholder Management</li>
+                    <li style="padding: 0.5rem 0;">• Quality Assurance</li>
+                    <li style="padding: 0.5rem 0;">• Cross-functional Leadership</li>
+                    <li style="padding: 0.5rem 0;">• Change Management</li>
+                </ul>
+
+                <h3 style="margin-top: 2rem;">Tools Used</h3>
+                <ul style="list-style: none; margin-left: 0;">
+                    <li style="padding: 0.5rem 0;">• Microsoft 365</li>
+                    <li style="padding: 0.5rem 0;">• Project Management Software</li>
+                    <li style="padding: 0.5rem 0;">• Microsoft Teams</li>
+                    <li style="padding: 0.5rem 0;">• Documentation Tools</li>
+                </ul>
+            </aside>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Renae Christie. All rights reserved.</p>
+    </footer>
+</body>
+</html>
