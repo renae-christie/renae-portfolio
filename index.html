@@ -149,6 +149,83 @@
             fill: white;
         }
 
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .skill-category h3 {
+            color: #4a7c59;
+            margin-bottom: 1rem;
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .skill-category li:last-child {
+            border-bottom: none;
+        }
+
+        .recognition-section {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-top: 2rem;
+        }
+
+        .recognition-box {
+            background: #f0f5f0;
+            border-left: 4px solid #4a7c59;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+        }
+
+        .recognition-box .award-title {
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #4a7c59;
+        }
+
+        .recognition-box p {
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        .read-more-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #4a7c59;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: all 0.3s;
+        }
+
+        .read-more-link:hover {
+            gap: 0.8rem;
+            color: #2d5016;
+        }
+
         .project-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -221,48 +298,59 @@
             color: #495057;
         }
 
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        @media (max-width: 1024px) {
-            .skills-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .skill-category {
+        .education-section {
             background: white;
-            padding: 2rem;
+            padding: 2.5rem;
             border-radius: 10px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-top: 2rem;
+            max-width: 600px;
         }
 
-        .skill-category h3 {
+        .education-content {
+            display: flex;
+            align-items: start;
+            gap: 2rem;
+        }
+
+        .education-icon {
+            flex-shrink: 0;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #4a7c59 0%, #6b9b7f 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .education-icon svg {
+            width: 32px;
+            height: 32px;
+            fill: white;
+        }
+
+        .education-details h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .education-details .degree {
             color: #4a7c59;
-            margin-bottom: 1rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
         }
 
-        .skill-category ul {
-            list-style: none;
+        .education-details .minor {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 0.5rem;
         }
 
-        .skill-category li {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #e9ecef;
-        }
-
-        .skill-category li:last-child {
-            border-bottom: none;
+        .education-details .location {
+            color: #666;
         }
 
         .contact {
@@ -337,6 +425,12 @@
             }
         }
 
+        @media (max-width: 1024px) {
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2rem;
@@ -353,61 +447,10 @@
             .project-grid {
                 grid-template-columns: 1fr;
             }
-        }
 
-        .education-section {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            margin-top: 2rem;
-            max-width: 600px;
-        }
-
-        .education-content {
-            display: flex;
-            align-items: start;
-            gap: 2rem;
-        }
-
-        .education-icon {
-            flex-shrink: 0;
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #4a7c59 0%, #6b9b7f 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .education-icon svg {
-            width: 32px;
-            height: 32px;
-            fill: white;
-        }
-
-        .education-details h3 {
-            color: #2c3e50;
-            margin-bottom: 0.5rem;
-            font-size: 1.3rem;
-        }
-
-        .education-details .degree {
-            color: #4a7c59;
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-bottom: 0.3rem;
-        }
-
-        .education-details .minor {
-            color: #666;
-            font-style: italic;
-            margin-bottom: 0.5rem;
-        }
-
-        .education-details .location {
-            color: #666;
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -415,10 +458,10 @@
     <nav>
         <ul>
             <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#recognition">Recognition</a></li>
             <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#recognition">Recognition</a></li>
+            <li><a href="#education">Education</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -460,29 +503,7 @@
         </div>
     </section>
 
-    <section id="recognition">
-        <h2>Recognition & Awards</h2>
-        <div class="recognition-section">
-            <div class="recognition-box">
-                <p class="award-title">🏆 Spot On Award - Q3 2025</p>
-                <p>"Renae is an integral part of our team and we would like to recognize her this quarter with a spot bonus. Her flexibility, organization, and willingness to jump in wherever needed helped the team stay on track. Renae consistently goes above and beyond to ensure our products are delivered in the highest quality possible."</p>
-                
-                <p style="margin-top: 1.5rem;"><strong>Key Achievements:</strong></p>
-                <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
-                    <li><strong style="color: #4a7c59; font-size: 1.2rem;">38</strong> Buyers Guide Reports delivered in Q3</li>
-                    <li><strong style="color: #4a7c59; font-size: 1.2rem;">$1M</strong> Q3 Quarter Contribution</li>
-                </ul>
-
-                <p>"The new structure and coordination across US and India operations has been central for Software Research and Renae support and leading is critical for our success."</p>
-                
-                <a href="isg-buyers-guide-scale-up.html" class="read-more-link">
-                    Read Full Project Story →
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section id="recognition">
+    <section id="projects">
         <h2>Key Projects & Initiatives</h2>
         <div class="project-grid">
             <a href="isg-buyers-guide-scale-up.html" class="project-link">
@@ -536,57 +557,8 @@
                 </div>
             </a>
         </div>
-            <a href="isg-buyers-guide-scale-up.html" class="project-link">
-                <div class="project-card">
-                    <div class="project-img">
-                        <img src="https://via.placeholder.com/400x200/4a7c59/ffffff?text=Project+Image" alt="ISG Buyers Guide Program">
-                    </div>
-                    <div class="project-content">
-                        <h3>ISG Buyers Guide Program Scale-Up</h3>
-                        <p>Led operational optimization that achieved 252% year-over-year increase in program output while maintaining quality standards and stakeholder alignment.</p>
-                        <div class="tags">
-                            <span class="tag">Program Management</span>
-                            <span class="tag">Process Optimization</span>
-                            <span class="tag">Stakeholder Management</span>
-                        </div>
-                    </div>
-                </div>
-            </a>
+    </section>
 
-            <a href="workflow-redesign.html" class="project-link">
-                <div class="project-card">
-                    <div class="project-img">
-                        <img src="https://via.placeholder.com/400x200/4a7c59/ffffff?text=Project+Image" alt="Cross-Functional Workflow">
-                    </div>
-                    <div class="project-content">
-                        <h3>Cross-Functional Workflow Redesign</h3>
-                        <p>Redesigned project management workflows across research, editorial, and product teams, accelerating project delivery by 30 days and improving cost visibility.</p>
-                        <div class="tags">
-                            <span class="tag">Workflow Design</span>
-                            <span class="tag">Cross-functional Leadership</span>
-                            <span class="tag">Agile/Waterfall</span>
-                        </div>
-                    </div>
-                </div>
-            </a>
-
-            <a href="publishing-process-optimization.html" class="project-link">
-                <div class="project-card">
-                    <div class="project-img">
-                        <img src="https://via.placeholder.com/400x200/4a7c59/ffffff?text=Project+Image" alt="Process Improvement">
-                    </div>
-                    <div class="project-content">
-                        <h3>Publishing Process Optimization</h3>
-                        <p>Identified and eliminated process inefficiencies at Ventana Research, reducing lead time by 10 working days and cutting editing costs by $11K per month.</p>
-                        <div class="tags">
-                            <span class="tag">Process Improvement</span>
-                            <span class="tag">Cost Reduction</span>
-                            <span class="tag">Quality Management</span>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
     <section id="skills">
         <h2>Skills & Expertise</h2>
         <div class="skills-grid">
@@ -632,6 +604,28 @@
                     <li>Content Strategy</li>
                     <li>SEO Optimization</li>
                 </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="recognition">
+        <h2>Recognition & Awards</h2>
+        <div class="recognition-section">
+            <div class="recognition-box">
+                <p class="award-title">🏆 Spot On Award - Q3 2025</p>
+                <p>"Renae is an integral part of our team and we would like to recognize her this quarter with a spot bonus. Her flexibility, organization, and willingness to jump in wherever needed helped the team stay on track. Renae consistently goes above and beyond to ensure our products are delivered in the highest quality possible."</p>
+                
+                <p style="margin-top: 1.5rem;"><strong>Key Achievements:</strong></p>
+                <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
+                    <li><strong style="color: #4a7c59; font-size: 1.2rem;">38</strong> Buyers Guide Reports delivered in Q3</li>
+                    <li><strong style="color: #4a7c59; font-size: 1.2rem;">$1M</strong> Q3 Quarter Contribution</li>
+                </ul>
+
+                <p>"The new structure and coordination across US and India operations has been central for Software Research and Renae support and leading is critical for our success."</p>
+                
+                <a href="isg-buyers-guide-scale-up.html" class="read-more-link">
+                    Read Full Project Story →
+                </a>
             </div>
         </div>
     </section>
