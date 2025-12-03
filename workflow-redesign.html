@@ -217,6 +217,20 @@
             object-position: center;
         }
 
+        .image-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .comparison-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+        }
+
         .image-caption {
             text-align: center;
             color: #666;
@@ -321,8 +335,9 @@
                 <p><strong>Cost Assessment:</strong> Evaluated the lack of visibility into project costs and time tracking, recognizing this was preventing data-driven resource allocation and pricing decisions.</p>
 
                 <div class="image-showcase">
-                    <div class="image-placeholder">
-                        <img src="https://via.placeholder.com/1000x400/4a7c59/ffffff?text=Current+vs+Redesigned+Workflow" alt="Workflow Comparison">
+                    <div class="image-comparison">
+                        <img src="https://raw.githubusercontent.com/hayden-christie/renae-portfolio/refs/heads/main/Old%20Schedule.png" alt="Workflow Before" class="comparison-image">
+                        <img src="https://raw.githubusercontent.com/hayden-christie/renae-portfolio/refs/heads/main/New%20Schedule.png" class="comparison-image">
                     </div>
                     <p class="image-caption">Side-by-side comparison of existing workflow versus redesigned process</p>
                 </div>
