@@ -354,15 +354,71 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        .education-section {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-top: 2rem;
+            max-width: 600px;
+        }
+
+        .education-content {
+            display: flex;
+            align-items: start;
+            gap: 2rem;
+        }
+
+        .education-icon {
+            flex-shrink: 0;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #4a7c59 0%, #6b9b7f 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .education-icon svg {
+            width: 32px;
+            height: 32px;
+            fill: white;
+        }
+
+        .education-details h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .education-details .degree {
+            color: #4a7c59;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .education-details .minor {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-details .location {
+            color: #666;
+        }
     </style>
 </head>
 <body>
     <nav>
         <ul>
             <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#recognition">Recognition</a></li>
             <li><a href="#skills">Skills</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#recognition">Recognition</a></li>
+            <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -426,7 +482,7 @@
         </div>
     </section>
 
-    <section id="projects">
+    <section id="recognition">
         <h2>Key Projects & Initiatives</h2>
         <div class="project-grid">
             <a href="isg-buyers-guide-scale-up.html" class="project-link">
@@ -512,7 +568,7 @@
                     <li>HubSpot</li>
                     <li>Survey Alchemer</li>
                     <li>Microsoft Teams</li>
-                    <li>Workzone Project Management</li>
+                    <li>Project Management Tools</li>
                 </ul>
             </div>
 
@@ -525,6 +581,25 @@
                     <li>Content Strategy</li>
                     <li>SEO Optimization</li>
                 </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+        <div class="education-section">
+            <div class="education-content">
+                <div class="education-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M12,3L1,9L12,15L21,10.09V17H23V9M5,13.18V17.18L12,21L19,17.18V13.18L12,17L5,13.18Z"/>
+                    </svg>
+                </div>
+                <div class="education-details">
+                    <h3>University of Nevada, Reno</h3>
+                    <p class="degree">Bachelor of Arts in English Literature</p>
+                    <p class="minor">Minor in French Language</p>
+                    <p class="location">Reno, Nevada</p>
+                </div>
             </div>
         </div>
     </section>
