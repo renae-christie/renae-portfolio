@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ISG Buyers Guide Program Scale-Up - Renae Christie</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -387,11 +388,107 @@
                 <p><strong>Resource Optimization Model:</strong> Built capacity planning system that matched analyst expertise with program requirements, optimized workload distribution, and identified when additional resources were needed before bottlenecks occurred.</p>
 
                 <div class="image-showcase">
-                    <div class="image-placeholder">
-                        <img src="https://via.placeholder.com/1000x400/4a7c59/ffffff?text=Output+Growth+Chart" alt="Output Growth">
-                    </div>
+                    <canvas id="outputChart" style="max-height: 400px;"></canvas>
                     <p class="image-caption">Year-over-year program output growth showing 252% increase</p>
                 </div>
+
+                <script>
+                    const ctx = document.getElementById('outputChart').getContext('2d');
+                    new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                            labels: ['2023', '2024', '2025'],
+                            datasets: [{
+                                label: 'Buyers Guides Published',
+                                data: [25, 88, 103],
+                                borderColor: '#4a7c59',
+                                backgroundColor: 'rgba(74, 124, 89, 0.1)',
+                                borderWidth: 3,
+                                pointBackgroundColor: '#4a7c59',
+                                pointBorderColor: '#fff',
+                                pointBorderWidth: 2,
+                                pointRadius: 6,
+                                pointHoverRadius: 8,
+                                tension: 0.2,
+                                fill: true
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: true,
+                            plugins: {
+                                legend: {
+                                    display: true,
+                                    position: 'top',
+                                    labels: {
+                                        font: {
+                                            size: 14,
+                                            weight: '500'
+                                        },
+                                        color: '#2c3e50'
+                                    }
+                                },
+                                tooltip: {
+                                    backgroundColor: 'rgba(74, 124, 89, 0.9)',
+                                    titleColor: '#fff',
+                                    bodyColor: '#fff',
+                                    borderColor: '#4a7c59',
+                                    borderWidth: 1,
+                                    padding: 12,
+                                    displayColors: false,
+                                    callbacks: {
+                                        label: function(context) {
+                                            return context.parsed.y + ' Buyers Guides';
+                                        }
+                                    }
+                                }
+                            },
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    title: {
+                                        display: true,
+                                        text: 'Number of Buyers Guides Published',
+                                        font: {
+                                            size: 14,
+                                            weight: '600'
+                                        },
+                                        color: '#2c3e50'
+                                    },
+                                    ticks: {
+                                        color: '#666',
+                                        font: {
+                                            size: 12
+                                        }
+                                    },
+                                    grid: {
+                                        color: 'rgba(0, 0, 0, 0.05)'
+                                    }
+                                },
+                                x: {
+                                    title: {
+                                        display: true,
+                                        text: 'Year',
+                                        font: {
+                                            size: 14,
+                                            weight: '600'
+                                        },
+                                        color: '#2c3e50'
+                                    },
+                                    ticks: {
+                                        color: '#666',
+                                        font: {
+                                            size: 12
+                                        }
+                                    },
+                                    grid: {
+                                        display: false
+                                    }
+                                }
+                            }
+                        }
+                    });
+                </script>
 
                 <h2>Cross-Functional Collaboration</h2>
                 <p>Success required seamless coordination across multiple teams and geographies:</p>
