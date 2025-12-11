@@ -1,736 +1,573 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cross-Functional Workflow Redesign - Renae Christie</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cross-Functional Workflow Redesign - Renae Christie</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #f7f6f3;
-        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f7f6f3;
+        }
 
-        nav {
-            background: #fff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+        nav {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            padding: 1.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-        nav a {
-            color: #333;
-            text-decoration: none;
-            padding: 0.5rem 1.5rem;
-            transition: all 0.3s;
-            font-weight: 500;
-        }
+        nav a {
+            color: #333;
+            text-decoration: none;
+            padding: 0.5rem 1.5rem;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
 
-        nav a:hover {
-            color: #4a7c59;
-            transform: translateY(-2px);
-        }
+        nav a:hover {
+            color: #4a7c59;
+            transform: translateY(-2px);
+        }
 
-        .back-link {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 2rem;
-        }
+        .back-link {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
 
-        .back-link a {
-            color: #4a7c59;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-weight: 500;
-        }
+        .back-link a {
+            color: #4a7c59;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+        }
 
-        .back-link a:hover {
-            text-decoration: underline;
-        }
+        .back-link a:hover {
+            text-decoration: underline;
+        }
 
-        .project-hero {
-            background: #e8ede8;
-            padding: 4rem 2rem;
-            border-bottom: 1px solid #d0ddd0;
-        }
+        .project-hero {
+            background: #e8ede8;
+            padding: 4rem 2rem;
+            border-bottom: 1px solid #d0ddd0;
+        }
 
-        .project-hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+        .project-hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-        .project-hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: #1a2f1a;
-        }
+        .project-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #1a2f1a;
+        }
 
-        .project-meta {
-            display: flex;
-            gap: 2rem;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
-        }
+        .project-meta {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
 
-        .meta-item {
-            display: flex;
-            flex-direction: column;
-        }
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+        }
 
-        .meta-label {
-            font-size: 0.85rem;
-            color: #666;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+        .meta-label {
+            font-size: 0.85rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-        .meta-value {
-            font-size: 1.1rem;
-            color: #4a7c59;
-            font-weight: 500;
-        }
+        .meta-value {
+            font-size: 1.1rem;
+            color: #4a7c59;
+            font-weight: 500;
+        }
 
-        .project-tags {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
+        .project-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
 
-        .tag {
-            background: #e9ecef;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            color: #495057;
-        }
+        .tag {
+            background: #e9ecef;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #495057;
+        }
 
-        .content-section {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
+        .content-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
 
-        .content-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 3rem;
-        }
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+        }
 
-        .main-content h2 {
-            color: #2c3e50;
-            margin-bottom: 1rem;
-            margin-top: 2rem;
-        }
+        .main-content h2 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+        }
 
-        .main-content h2:first-child {
-            margin-top: 0;
-        }
+        .main-content h2:first-child {
+            margin-top: 0;
+        }
 
-        .main-content p {
-            margin-bottom: 1.5rem;
-            color: #555;
-        }
+        .main-content p {
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
 
-        .main-content ul {
-            margin-bottom: 1.5rem;
-            margin-left: 2rem;
-        }
+        .main-content ul {
+            margin-bottom: 1.5rem;
+            margin-left: 2rem;
+        }
 
-        .main-content li {
-            margin-bottom: 0.5rem;
-            color: #555;
-        }
+        .main-content li {
+            margin-bottom: 0.5rem;
+            color: #555;
+        }
 
-        .sidebar {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            height: fit-content;
-            position: sticky;
-            top: 100px;
-        }
+        .sidebar {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
 
-        .sidebar h3 {
-            color: #4a7c59;
-            margin-bottom: 1rem;
-        }
+        .sidebar h3 {
+            color: #4a7c59;
+            margin-bottom: 1rem;
+        }
 
-        .sidebar .stat {
-            margin-bottom: 1.5rem;
-        }
+        .sidebar .stat {
+            margin-bottom: 1.5rem;
+        }
 
-        .stat-label {
-            font-size: 0.9rem;
-            color: #666;
-        }
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+        }
 
-        .stat-value {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #4a7c59;
-        }
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #4a7c59;
+        }
 
-        .image-showcase {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            margin: 2rem 0;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
+        .image-showcase {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
 
-        .image-placeholder {
-            width: 100%;
-            height: 400px;
-            background: #e9ecef;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1rem;
-            overflow: hidden;
-        }
+        .image-placeholder {
+            width: 100%;
+            height: 400px;
+            background: #e9ecef;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
 
-        .image-placeholder img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-        }
+        .image-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
 
-        .image-comparison {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
+        .image-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
 
-        .comparison-image {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            border: 1px solid #e9ecef;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
+        .comparison-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
 
-        .comparison-image:hover {
-            transform: scale(1.02);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
+        .comparison-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
 
-        .lightbox {
-            display: none;
-            position: fixed;
-            z-index: 9999;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            align-items: center;
-            justify-content: center;
-        }
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            align-items: center;
+            justify-content: center;
+        }
 
-        .lightbox.active {
-            display: flex;
-        }
+        .lightbox.active {
+            display: flex;
+        }
 
-        .lightbox img {
-            max-width: 90%;
-            max-height: 90vh;
-            border-radius: 8px;
-            box-shadow: 0 0 50px rgba(0,0,0,0.5);
-        }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90vh;
+            border-radius: 8px;
+            box-shadow: 0 0 50px rgba(0,0,0,0.5);
+        }
 
-        .lightbox-close {
-            position: absolute;
-            top: 20px;
-            right: 40px;
-            color: white;
-            font-size: 40px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
 
-        .lightbox-close:hover {
-            color: #4a7c59;
-        }
+        .lightbox-close:hover {
+            color: #4a7c59;
+        }
 
-        .image-caption {
-            text-align: center;
-            color: #666;
-            font-size: 0.9rem;
-        }
+        .image-caption {
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
 
-        /* Chart Styles */
-        .chart-container {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            margin: 2rem 0;
-        }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #1a2f1a;
+            color: white;
+            margin-top: 4rem;
+        }
 
-        .chart-title {
-            color: #2c3e50;
-            text-align: center;
-            margin-bottom: 1.5rem;
-            font-size: 1.3rem;
-        }
+        @media (max-width: 968px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
 
-        .hours-chart {
-            width: 100%;
-            height: auto;
-            max-width: 600px;
-            margin: 0 auto;
-            display: block;
-        }
+            .sidebar {
+                position: static;
+            }
 
-        .axis, .grid-line {
-            stroke: #ddd;
-            stroke-width: 1;
-        }
-
-        .axis {
-            stroke: #333;
-            stroke-width: 2;
-        }
-
-        .axis-label, .category-label {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-size: 14px;
-            fill: #666;
-        }
-
-        .category-label {
-            font-weight: 500;
-            text-anchor: middle;
-        }
-
-        .y-axis-label {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-size: 14px;
-            fill: #666;
-            font-weight: 500;
-            text-anchor: middle;
-        }
-
-        .bar-budgeted {
-            fill: #c0c0c0;
-            transition: all 0.3s ease;
-        }
-
-        .bar-budgeted:hover {
-            fill: #a8a8a8;
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
-        }
-
-        .bar-actual {
-            fill: #4a7c59;
-            transition: all 0.3s ease;
-        }
-
-        .bar-actual:hover {
-            fill: #3d6849;
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
-        }
-
-        .bar-label {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-size: 16px;
-            font-weight: 600;
-            fill: #333;
-            text-anchor: middle;
-        }
-
-        .annotation-box {
-            fill: #f8f9fa;
-            stroke: #4a7c59;
-            stroke-width: 2;
-            rx: 5;
-        }
-
-        .annotation-title {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-size: 13px;
-            font-weight: 600;
-            fill: #4a7c59;
-            text-anchor: middle;
-        }
-
-        .annotation-value {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-size: 18px;
-            font-weight: 700;
-            fill: #4a7c59;
-            text-anchor: middle;
-        }
-
-        .annotation-detail {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-size: 12px;
-            fill: #666;
-            text-anchor: middle;
-        }
-
-        .chart-caption {
-            text-align: center;
-            color: #666;
-            font-size: 0.95rem;
-            margin-top: 1.5rem;
-            font-style: italic;
-        }
-
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background: #1a2f1a;
-            color: white;
-            margin-top: 4rem;
-        }
-
-        @media (max-width: 968px) {
-            .content-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .sidebar {
-                position: static;
-            }
-
-            .project-hero h1 {
-                font-size: 2rem;
-            }
-        }
-    </style>
+            .project-hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="index.html#about">About</a></li>
-            <li><a href="index.html#projects">Projects</a></li>
-            <li><a href="index.html#skills">Skills</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
-        </ul>
-    </nav>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#projects">Projects</a></li>
+            <li><a href="index.html#skills">Skills</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-    <div class="back-link">
-        <a href="index.html#projects">← Back to Projects</a>
-    </div>
+    <div class="back-link">
+        <a href="index.html#projects">← Back to Projects</a>
+    </div>
 
-    <div class="project-hero">
-        <div class="project-hero-content">
-            <h1>Cross-Functional Workflow Redesign</h1>
-            
-            <div class="project-meta">
-                <div class="meta-item">
-                    <span class="meta-label">Timeline</span>
-                    <span class="meta-value">2024</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-label">Role</span>
-                    <span class="meta-value">Research Program Manager</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-label">Impact</span>
-                    <span class="meta-value">~30-Day Acceleration</span>
-                </div>
-            </div>
+    <div class="project-hero">
+        <div class="project-hero-content">
+            <h1>Cross-Functional Workflow Redesign</h1>
+            
+            <div class="project-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Timeline</span>
+                    <span class="meta-value">2024</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Role</span>
+                    <span class="meta-value">Research Program Manager</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Impact</span>
+                    <span class="meta-value">~30-Day Acceleration</span>
+                </div>
+            </div>
 
-            <div class="project-tags">
-                <span class="tag">Workflow Design</span>
-                <span class="tag">Cross-functional Leadership</span>
-                <span class="tag">Agile/Waterfall</span>
-                <span class="tag">Process Improvement</span>
-            </div>
-        </div>
-    </div>
+            <div class="project-tags">
+                <span class="tag">Workflow Design</span>
+                <span class="tag">Cross-functional Leadership</span>
+                <span class="tag">Agile/Waterfall</span>
+                <span class="tag">Process Improvement</span>
+            </div>
+        </div>
+    </div>
 
-    <div class="content-section">
-        <div class="content-grid">
-            <div class="main-content">
-                <h2>Overview</h2>
-                <p>Partnered cross-functionally with research, editorial, and product teams to completely redesign project management workflows at ISG. This initiative addressed coordination inefficiencies, improved time-tracking and cost visibility, and accelerated project delivery by 30 days through streamlined handoffs and better resource planning.</p>
+    <div class="content-section">
+        <div class="content-grid">
+            <div class="main-content">
+                <h2>Overview</h2>
+                <p>Partnered cross-functionally with research, editorial, and product teams to completely redesign project management workflows at ISG. This initiative addressed coordination inefficiencies, improved time-tracking and cost visibility, and accelerated project delivery by 30 days through streamlined handoffs and better resource planning.</p>
 
-                <h2>The Problem</h2>
-                <p>As ISG scaled its research operations, the existing workflows that connected research, editorial, and product teams were becoming increasingly problematic:</p>
-                <ul>
-                    <li>Unclear handoff points between teams leading to delays and rework</li>
-                    <li>Limited visibility into time spent on each project phase</li>
-                    <li>Difficulty tracking project costs and resource allocation</li>
-                    <li>Inconsistent project management approaches across teams</li>
-                    <li>Information silos preventing effective coordination</li>
-                    <li>Extended delivery timelines due to coordination overhead</li>
-                    <li>Lack of standardized tools and processes across functions</li>
-                </ul>
+                <h2>The Problem</h2>
+                <p>As ISG scaled its research operations, the existing workflows that connected research, editorial, and product teams were becoming increasingly problematic:</p>
+                <ul>
+                    <li>Unclear handoff points between teams leading to delays and rework</li>
+                    <li>Limited visibility into time spent on each project phase</li>
+                    <li>Difficulty tracking project costs and resource allocation</li>
+                    <li>Inconsistent project management approaches across teams</li>
+                    <li>Information silos preventing effective coordination</li>
+                    <li>Extended delivery timelines due to coordination overhead</li>
+                    <li>Lack of standardized tools and processes across functions</li>
+                </ul>
 
-                <p>The impact was significant: projects were taking 30+ days longer than necessary, budget tracking was difficult, and teams were frustrated by the lack of clarity around their roles and responsibilities.</p>
+                <p>The impact was significant: projects were taking 30+ days longer than necessary, budget tracking was difficult, and teams were frustrated by the lack of clarity around their roles and responsibilities.</p>
 
-                <h2>Discovery & Analysis</h2>
-                <p>Before redesigning workflows, I conducted comprehensive discovery to understand the current state:</p>
+                <h2>Discovery & Analysis</h2>
+                <p>Before redesigning workflows, I conducted comprehensive discovery to understand the current state:</p>
 
-                <p><strong>Stakeholder Interviews:</strong> Met with team members from research, editorial, and product teams to understand their pain points, workflows, and needs. These conversations revealed that each team had developed workarounds for the broken processes, but these workarounds weren't coordinated or scalable.</p>
+                <p><strong>Stakeholder Interviews:</strong> Met with team members from research, editorial, and product teams to understand their pain points, workflows, and needs. These conversations revealed that each team had developed workarounds for the broken processes, but these workarounds weren't coordinated or scalable.</p>
 
-                <p><strong>Process Mapping:</strong> Documented the existing end-to-end workflows from project initiation through publication, identifying every handoff point, approval step, and decision gate. This mapping revealed significant redundancies and gaps.</p>
+                <p><strong>Process Mapping:</strong> Documented the existing end-to-end workflows from project initiation through publication, identifying every handoff point, approval step, and decision gate. This mapping revealed significant redundancies and gaps.</p>
 
-                <p><strong>Time Analysis:</strong> Analyzed historical project data to understand where time was being spent and where delays most commonly occurred. Found that coordination and handoff points accounted for 40% of project delays.</p>
+                <p><strong>Time Analysis:</strong> Analyzed historical project data to understand where time was being spent and where delays most commonly occurred. Found that coordination and handoff points accounted for 40% of project delays.</p>
 
-                <p><strong>Cost Assessment:</strong> Evaluated the lack of visibility into project costs and time tracking, recognizing this was preventing data-driven resource allocation and pricing decisions.</p>
+                <p><strong>Cost Assessment:</strong> Evaluated the lack of visibility into project costs and time tracking, recognizing this was preventing data-driven resource allocation and pricing decisions.</p>
 
-                <div class="image-showcase">
-                    <div class="image-comparison">
-                        <img src="images/projects/workflow-redesign/workflow-before.png" alt="Workflow Before" class="comparison-image" onclick="openLightbox(this.src)">
-                        <img src="images/projects/workflow-redesign/workflow-after.png" alt="Workflow After" class="comparison-image" onclick="openLightbox(this.src)">
-                    </div>
-                    <p class="image-caption">Side-by-side comparison of existing workflow versus redesigned process (click to enlarge)</p>
-                </div>
+                <div class="image-showcase">
+                    <div class="image-comparison">
+                        <img src="images/projects/workflow-redesign/workflow-before.png" alt="Workflow Before" class="comparison-image" onclick="openLightbox(this.src)">
+                        <img src="images/projects/workflow-redesign/workflow-after.png" alt="Workflow After" class="comparison-image" onclick="openLightbox(this.src)">
+                    </div>
+                    <p class="image-caption">Side-by-side comparison of existing workflow versus redesigned process (click to enlarge)</p>
+                </div>
 
-                <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-                    <span class="lightbox-close">&times;</span>
-                    <img id="lightbox-img" src="" alt="Enlarged view">
-                </div>
+                <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+                    <span class="lightbox-close">&times;</span>
+                    <img id="lightbox-img" src="" alt="Enlarged view">
+                </div>
 
-                <script>
-                    function openLightbox(src) {
-                        document.getElementById('lightbox').classList.add('active');
-                        document.getElementById('lightbox-img').src = src;
-                        document.body.style.overflow = 'hidden';
-                    }
+                <script>
+                    function openLightbox(src) {
+                        document.getElementById('lightbox').classList.add('active');
+                        document.getElementById('lightbox-img').src = src;
+                        document.body.style.overflow = 'hidden';
+                    }
 
-                    function closeLightbox() {
-                        document.getElementById('lightbox').classList.remove('active');
-                        document.body.style.overflow = 'auto';
-                    }
+                    function closeLightbox() {
+                        document.getElementById('lightbox').classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                    }
 
-                    document.addEventListener('keydown', function(e) {
-                        if (e.key === 'Escape') {
-                            closeLightbox();
-                        }
-                    });
-                </script>
+                    document.addEventListener('keydown', function(e) {
+                        if (e.key === 'Escape') {
+                            closeLightbox();
+                        }
+                    });
+                </script>
 
-                <h2>Redesigned Workflow Structure</h2>
-                <p>Based on the discovery findings, I designed a new workflow structure with clear phases, handoffs, and accountability:</p>
+                <h2>Redesigned Workflow Structure</h2>
+                <p>Based on the discovery findings, I designed a new workflow structure with clear phases, handoffs, and accountability:</p>
 
-                <p><strong>Phase 1: Project Initiation & Planning</strong></p>
-                <ul>
-                    <li>Standardized project intake process with clear requirements</li>
-                    <li>Upfront alignment meeting with all stakeholders to set expectations</li>
-                    <li>Defined project scope, timeline, and resource requirements</li>
-                    <li>Established success criteria and quality standards</li>
-                </ul>
+                <p><strong>Phase 1: Project Initiation & Planning</strong></p>
+                <ul>
+                    <li>Standardized project intake process with clear requirements</li>
+                    <li>Upfront alignment meeting with all stakeholders to set expectations</li>
+                    <li>Defined project scope, timeline, and resource requirements</li>
+                    <li>Established success criteria and quality standards</li>
+                </ul>
 
-                <p><strong>Phase 2: Research & Analysis</strong></p>
-                <ul>
-                    <li>Clear deliverable expectations for research team</li>
-                    <li>Structured checkpoints for progress reviews</li>
-                    <li>Defined handoff criteria to move to editorial phase</li>
-                    <li>Time tracking implemented at task level</li>
-                </ul>
+                <p><strong>Phase 2: Research & Analysis</strong></p>
+                <ul>
+                    <li>Clear deliverable expectations for research team</li>
+                    <li>Structured checkpoints for progress reviews</li>
+                    <li>Defined handoff criteria to move to editorial phase</li>
+                    <li>Time tracking implemented at task level</li>
+                </ul>
 
-                <p><strong>Phase 3: Editorial Review & Refinement</strong></p>
-                <ul>
-                    <li>Streamlined review process with clear timelines</li>
-                    <li>Reduced review cycles through better upfront alignment</li>
-                    <li>Parallel review tracks where appropriate to save time</li>
-                    <li>Automated notifications for review completion</li>
-                </ul>
+                <p><strong>Phase 3: Editorial Review & Refinement</strong></p>
+                <ul>
+                    <li>Streamlined review process with clear timelines</li>
+                    <li>Reduced review cycles through better upfront alignment</li>
+                    <li>Parallel review tracks where appropriate to save time</li>
+                    <li>Automated notifications for review completion</li>
+                </ul>
 
-                <p><strong>Phase 4: Product Finalization & Publication</strong></p>
-                <ul>
-                    <li>Coordinated product team involvement earlier in process</li>
-                    <li>Standardized publication checklists</li>
-                    <li>Clear go/no-go criteria for publication</li>
-                    <li>Post-publication retrospectives for continuous improvement</li>
-                </ul>
+                <p><strong>Phase 4: Product Finalization & Publication</strong></p>
+                <ul>
+                    <li>Coordinated product team involvement earlier in process</li>
+                    <li>Standardized publication checklists</li>
+                    <li>Clear go/no-go criteria for publication</li>
+                    <li>Post-publication retrospectives for continuous improvement</li>
+                </ul>
 
-                <h2>Key Improvements Implemented</h2>
+                <h2>Key Improvements Implemented</h2>
 
-                <p><strong>Standardized Handoff Process:</strong> Created detailed handoff checklists and criteria for each transition point between teams. This eliminated ambiguity about when work was "done" and ready for the next team, reducing back-and-forth and rework.</p>
+                <p><strong>Standardized Handoff Process:</strong> Created detailed handoff checklists and criteria for each transition point between teams. This eliminated ambiguity about when work was "done" and ready for the next team, reducing back-and-forth and rework.</p>
 
-                <p><strong>Time Tracking System:</strong> Implemented comprehensive time tracking that captured effort at the task level across all phases. This provided visibility into where time was actually being spent versus estimated, enabling better planning and resource allocation.</p>
+                <p><strong>Time Tracking System:</strong> Implemented comprehensive time tracking that captured effort at the task level across all phases. This provided visibility into where time was actually being spent versus estimated, enabling better planning and resource allocation.</p>
 
-                <p><strong>Cost Visibility Framework:</strong> Developed costing model that tied time tracking data to project costs, giving leadership clear visibility into the true cost of each program and enabling data-driven pricing decisions.</p>
+                <p><strong>Cost Visibility Framework:</strong> Developed costing model that tied time tracking data to project costs, giving leadership clear visibility into the true cost of each program and enabling data-driven pricing decisions.</p>
 
-                <p><strong>Unified Project Management Tools:</strong> Consolidated the various tools and spreadsheets teams were using into a unified project management platform, creating a single source of truth for project status and eliminating duplicate data entry.</p>
+                <p><strong>Unified Project Management Tools:</strong> Consolidated the various tools and spreadsheets teams were using into a unified project management platform, creating a single source of truth for project status and eliminating duplicate data entry.</p>
 
-                <div class="chart-container">
-                    <h3 class="chart-title">Project Hours: Budgeted vs. Actual</h3>
-                    <svg class="hours-chart" viewBox="0 0 600 350" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Y-axis labels -->
-                        <text x="40" y="50" class="axis-label" text-anchor="end">80</text>
-                        <text x="40" y="110" class="axis-label" text-anchor="end">60</text>
-                        <text x="40" y="170" class="axis-label" text-anchor="end">40</text>
-                        <text x="40" y="230" class="axis-label" text-anchor="end">20</text>
-                        <text x="40" y="290" class="axis-label" text-anchor="end">0</text>
-                        
-                        <!-- Grid lines -->
-                        <line x1="50" y1="50" x2="550" y2="50" class="grid-line"/>
-                        <line x1="50" y1="110" x2="550" y2="110" class="grid-line"/>
-                        <line x1="50" y1="170" x2="550" y2="170" class="grid-line"/>
-                        <line x1="50" y1="230" x2="550" y2="230" class="grid-line"/>
-                        <line x1="50" y1="290" x2="550" y2="290" class="grid-line"/>
-                        
-                        <!-- Axes -->
-                        <line x1="50" y1="50" x2="50" y2="290" class="axis"/>
-                        <line x1="50" y1="290" x2="550" y2="290" class="axis"/>
-                        
-                        <!-- Budgeted Hours Bar (82 hours) - Gray -->
-                        <rect x="150" y="56" width="80" height="234" class="bar-budgeted">
-                            <title>Budgeted: 82 hours</title>
-                        </rect>
-                        <text x="190" y="45" class="bar-label">82</text>
-                        
-                        <!-- Actual Hours Bar (38 hours) - Green -->
-                        <rect x="250" y="152" width="80" height="138" class="bar-actual">
-                            <title>Actual: 38 hours</title>
-                        </rect>
-                        <text x="290" y="141" class="bar-label">38</text>
-                        
-                        <!-- X-axis labels -->
-                        <text x="190" y="315" class="category-label">Budgeted Hours</text>
-                        <text x="290" y="315" class="category-label">Actual Hours</text>
-                        
-                        <!-- Savings annotation -->
-                        <g class="savings-annotation">
-                            <rect x="370" y="100" width="160" height="80" class="annotation-box"/>
-                            <text x="450" y="125" class="annotation-title">Efficiency Gained</text>
-                            <text x="450" y="150" class="annotation-value">53% Under Budget</text>
-                            <text x="450" y="170" class="annotation-detail">43 hours saved</text>
-                        </g>
-                        
-                        <!-- Y-axis label -->
-                        <text x="20" y="170" class="y-axis-label" transform="rotate(-90, 20, 170)">Hours</text>
-                    </svg>
-                    <p class="chart-caption">Standardized handoff process enabled significant time savings, completing the project in 38 hours versus the 82-hour budget</p>
-                </div>
+                <div class="image-showcase">
+                    <div class="image-placeholder">
+                        <img src="images/projects/workflow-redesign/quality-control.png" alt="Quality Control">
+                    </div>
+                    <p class="image-caption">Documentation of Quality Control standards</p>
+                </div>
 
-                <h2>Cross-Functional Collaboration Approach</h2>
-                <p>Success required genuine partnership across all three teams:</p>
+                <h2>Cross-Functional Collaboration Approach</h2>
+                <p>Success required genuine partnership across all three teams:</p>
 
-                <p><strong>Pilot Programs:</strong> Tested the redesigned workflows with pilot projects before full rollout. This allowed us to identify and fix issues in a controlled environment and demonstrate value before asking all teams to change their processes.</p>
+                <p><strong>Pilot Programs:</strong> Tested the redesigned workflows with pilot projects before full rollout. This allowed us to identify and fix issues in a controlled environment and demonstrate value before asking all teams to change their processes.</p>
 
-                <p><strong>Regular Feedback Loops:</strong> Established ongoing feedback mechanisms so teams could surface issues and suggest improvements. The workflow continued to evolve based on real-world usage.</p>
+                <p><strong>Regular Feedback Loops:</strong> Established ongoing feedback mechanisms so teams could surface issues and suggest improvements. The workflow continued to evolve based on real-world usage.</p>
 
-                <p><strong>Change Champions:</strong> Identified and empowered champions within each team who could advocate for the new workflows, help their colleagues adapt, and surface team-specific concerns.</p>
+                <p><strong>Change Champions:</strong> Identified and empowered champions within each team who could advocate for the new workflows, help their colleagues adapt, and surface team-specific concerns.</p>
 
-                <h2>Implementation & Change Management</h2>
-                <p>Rolling out new workflows across established teams required thoughtful change management:</p>
+                <h2>Implementation & Change Management</h2>
+                <p>Rolling out new workflows across established teams required thoughtful change management:</p>
 
-                <p><strong>Training Program:</strong> Developed comprehensive training for all team members covering the new workflows, tools, and expectations. Training was role-specific to ensure relevance.</p>
+                <p><strong>Training Program:</strong> Developed comprehensive training for all team members covering the new workflows, tools, and expectations. Training was role-specific to ensure relevance.</p>
 
-                <p><strong>Documentation:</strong> Created detailed process documentation, quick reference guides, and FAQs that teams could reference as they adapted to the new workflows.</p>
+                <p><strong>Documentation:</strong> Created detailed process documentation, quick reference guides, and FAQs that teams could reference as they adapted to the new workflows.</p>
 
-                <p><strong>Phased Rollout:</strong> Implemented the changes in phases rather than all at once, allowing teams to adjust gradually and reducing the risk of disruption to ongoing projects.</p>
+                <p><strong>Phased Rollout:</strong> Implemented the changes in phases rather than all at once, allowing teams to adjust gradually and reducing the risk of disruption to ongoing projects.</p>
 
-                <p><strong>Success Metrics:</strong> Established clear metrics to track the impact of the new workflows, including delivery timelines, rework rates, and team satisfaction scores.</p>
+                <p><strong>Success Metrics:</strong> Established clear metrics to track the impact of the new workflows, including delivery timelines, rework rates, and team satisfaction scores.</p>
 
-                <div class="image-showcase">
-                    <div class="image-placeholder">
-                        <img src="images/projects/workflow-redesign/training-videos.png" alt="Training Videos">
-                    </div>
-                    <p class="image-caption">Training videos and reference guides created for successful knowledge transfers</p>
-                </div>
+                <div class="image-showcase">
+                    <div class="image-placeholder">
+                        <img src="images/projects/workflow-redesign/training-videos.png" alt="Training Videos">
+                    </div>
+                    <p class="image-caption">Training videos and reference guides created for successful knowledge transfers</p>
+                </div>
 
-                <h2>Results & Impact</h2>
-                <p>The workflow redesign delivered substantial improvements across multiple dimensions:</p>
-                <ul>
-                    <li><strong>~30-day acceleration in project delivery</strong> - reduced average time from initiation to publication</li>
-                    <li><strong>Improved cost visibility</strong> - leadership gained clear understanding of project economics</li>
-                    <li><strong>Enhanced time tracking accuracy</strong> - moved from estimates to actual data for planning</li>
-                    <li><strong>Reduced rework by 40%</strong> - clearer handoff criteria eliminated back-and-forth</li>
-                    <li><strong>Increased team satisfaction</strong> - teams appreciated the clarity and reduced friction</li>
-                    <li><strong>Better resource planning</strong> - accurate time data enabled more effective capacity planning</li>
-                    <li><strong>Streamlined operations</strong> - unified tools and processes reduced overhead</li>
-                </ul>
+                <h2>Results & Impact</h2>
+                <p>The workflow redesign delivered substantial improvements across multiple dimensions:</p>
+                <ul>
+                    <li><strong>~30-day acceleration in project delivery</strong> - reduced average time from initiation to publication</li>
+                    <li><strong>Improved cost visibility</strong> - leadership gained clear understanding of project economics</li>
+                    <li><strong>Enhanced time tracking accuracy</strong> - moved from estimates to actual data for planning</li>
+                    <li><strong>Reduced rework by 40%</strong> - clearer handoff criteria eliminated back-and-forth</li>
+                    <li><strong>Increased team satisfaction</strong> - teams appreciated the clarity and reduced friction</li>
+                    <li><strong>Better resource planning</strong> - accurate time data enabled more effective capacity planning</li>
+                    <li><strong>Streamlined operations</strong> - unified tools and processes reduced overhead</li>
+                </ul>
 
-                <h2>Sustained Impact</h2>
-                <p>Beyond the immediate improvements, the workflow redesign created lasting organizational benefits:</p>
+                <h2>Sustained Impact</h2>
+                <p>Beyond the immediate improvements, the workflow redesign created lasting organizational benefits:</p>
 
-                <p><strong>Scalable Foundation:</strong> The standardized workflows could accommodate growth without breaking down, supporting the 252% output increase achieved in the broader program.</p>
+                <p><strong>Scalable Foundation:</strong> The standardized workflows could accommodate growth without breaking down, supporting the 252% output increase achieved in the broader program.</p>
 
-                <p><strong>Data-Driven Decisions:</strong> The improved visibility into time and costs enabled leadership to make informed decisions about resource allocation, pricing, and strategic priorities.</p>
+                <p><strong>Data-Driven Decisions:</strong> The improved visibility into time and costs enabled leadership to make informed decisions about resource allocation, pricing, and strategic priorities.</p>
 
-                <p><strong>Continuous Improvement Culture:</strong> The feedback mechanisms and metrics tracking created a culture of continuous improvement where teams regularly identified and implemented optimizations.</p>
+                <p><strong>Continuous Improvement Culture:</strong> The feedback mechanisms and metrics tracking created a culture of continuous improvement where teams regularly identified and implemented optimizations.</p>
 
-                <p><strong>Improved Cross-Functional Relationships:</strong> The collaborative design and implementation process strengthened relationships between teams, making future cross-functional initiatives easier.</p>
+                <p><strong>Improved Cross-Functional Relationships:</strong> The collaborative design and implementation process strengthened relationships between teams, making future cross-functional initiatives easier.</p>
 
-                <h2>Key Learnings</h2>
-                
-                <p><strong>Start with pain points:</strong> Focusing on solving the real problems teams were experiencing (delays, rework, lack of visibility) ensured the redesigned workflows delivered tangible value.</p>
+                <h2>Key Learnings</h2>
+                
+                <p><strong>Start with pain points:</strong> Focusing on solving the real problems teams were experiencing (delays, rework, lack of visibility) ensured the redesigned workflows delivered tangible value.</p>
 
-                <p><strong>Pilot before scaling:</strong> Testing with pilot projects allowed us to identify and fix issues before full rollout, preventing widespread disruption and building confidence in the new approach.</p>
+                <p><strong>Pilot before scaling:</strong> Testing with pilot projects allowed us to identify and fix issues before full rollout, preventing widespread disruption and building confidence in the new approach.</p>
 
-                <p><strong>Measure what matters:</strong> Establishing clear metrics helped demonstrate value, maintain focus on outcomes, and identify areas for continued improvement.</p>
+                <p><strong>Measure what matters:</strong> Establishing clear metrics helped demonstrate value, maintain focus on outcomes, and identify areas for continued improvement.</p>
 
-                <p><strong>Document everything:</strong> Comprehensive documentation was essential for training, onboarding new team members, and ensuring consistency as the organization scaled.</p>
-            </div>
+                <p><strong>Document everything:</strong> Comprehensive documentation was essential for training, onboarding new team members, and ensuring consistency as the organization scaled.</p>
+            </div>
 
-            <aside class="sidebar">
-                <h3>Key Metrics</h3>
-                
-                <div class="stat">
-                    <div class="stat-label">Delivery Acceleration</div>
-                    <div class="stat-value">~30 Days</div>
-                </div>
+            <aside class="sidebar">
+                <h3>Key Metrics</h3>
+                
+                <div class="stat">
+                    <div class="stat-label">Delivery Acceleration</div>
+                    <div class="stat-value">~30 Days</div>
+                </div>
 
-                <div class="stat">
-                    <div class="stat-label">Rework Reduction</div>
-                    <div class="stat-value">40%</div>
-                </div>
+                <div class="stat">
+                    <div class="stat-label">Rework Reduction</div>
+                    <div class="stat-value">40%</div>
+                </div>
 
-                <div class="stat">
-                    <div class="stat-label">Teams Involved</div>
-                    <div class="stat-value">3</div>
-                </div>
+                <div class="stat">
+                    <div class="stat-label">Teams Involved</div>
+                    <div class="stat-value">3</div>
+                </div>
 
-                <h3 style="margin-top: 2rem;">Skills Applied</h3>
-                <ul style="list-style: none; margin-left: 0;">
-                    <li style="padding: 0.5rem 0;">• Workflow Design</li>
-                    <li style="padding: 0.5rem 0;">• Process Mapping</li>
-                    <li style="padding: 0.5rem 0;">• Cross-functional Leadership</li>
-                    <li style="padding: 0.5rem 0;">• Change Management</li>
-                    <li style="padding: 0.5rem 0;">• Stakeholder Management</li>
-                    <li style="padding: 0.5rem 0;">• Project Management</li>
-                    <li style="padding: 0.5rem 0;">• Data Analysis</li>
-                </ul>
+                <h3 style="margin-top: 2rem;">Skills Applied</h3>
+                <ul style="list-style: none; margin-left: 0;">
+                    <li style="padding: 0.5rem 0;">• Workflow Design</li>
+                    <li style="padding: 0.5rem 0;">• Process Mapping</li>
+                    <li style="padding: 0.5rem 0;">• Cross-functional Leadership</li>
+                    <li style="padding: 0.5rem 0;">• Change Management</li>
+                    <li style="padding: 0.5rem 0;">• Stakeholder Management</li>
+                    <li style="padding: 0.5rem 0;">• Project Management</li>
+                    <li style="padding: 0.5rem 0;">• Data Analysis</li>
+                </ul>
 
-                <h3 style="margin-top: 2rem;">Deliverables</h3>
-                <ul style="list-style: none; margin-left: 0;">
-                    <li style="padding: 0.5rem 0;">• Process Documentation</li>
-                    <li style="padding: 0.5rem 0;">• Training Materials</li>
-                    <li style="padding: 0.5rem 0;">• Time Tracking System</li>
-                    <li style="padding: 0.5rem 0;">• Cost Visibility Framework</li>
-                    <li style="padding: 0.5rem 0;">• Handoff Checklists</li>
-                </ul>
-            </aside>
-        </div>
-    </div>
+                <h3 style="margin-top: 2rem;">Deliverables</h3>
+                <ul style="list-style: none; margin-left: 0;">
+                    <li style="padding: 0.5rem 0;">• Process Documentation</li>
+                    <li style="padding: 0.5rem 0;">• Training Materials</li>
+                    <li style="padding: 0.5rem 0;">• Time Tracking System</li>
+                    <li style="padding: 0.5rem 0;">• Cost Visibility Framework</li>
+                    <li style="padding: 0.5rem 0;">• Handoff Checklists</li>
+                </ul>
+            </aside>
+        </div>
+    </div>
 
-    <footer>
-        <p>&copy; 2025 Renae Christie. All rights reserved.</p>
-    </footer>
+    <footer>
+        <p>&copy; 2025 Renae Christie. All rights reserved.</p>
+    </footer>
 </body>
 </html>
