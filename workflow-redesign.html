@@ -283,6 +283,125 @@
             font-size: 0.9rem;
         }
 
+        /* Chart Styles */
+        .chart-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin: 2rem 0;
+        }
+
+        .chart-title {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .hours-chart {
+            width: 100%;
+            height: auto;
+            max-width: 600px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .axis, .grid-line {
+            stroke: #ddd;
+            stroke-width: 1;
+        }
+
+        .axis {
+            stroke: #333;
+            stroke-width: 2;
+        }
+
+        .axis-label, .category-label {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 14px;
+            fill: #666;
+        }
+
+        .category-label {
+            font-weight: 500;
+            text-anchor: middle;
+        }
+
+        .y-axis-label {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 14px;
+            fill: #666;
+            font-weight: 500;
+            text-anchor: middle;
+        }
+
+        .bar-budgeted {
+            fill: #c0c0c0;
+            transition: all 0.3s ease;
+        }
+
+        .bar-budgeted:hover {
+            fill: #a8a8a8;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+        }
+
+        .bar-actual {
+            fill: #4a7c59;
+            transition: all 0.3s ease;
+        }
+
+        .bar-actual:hover {
+            fill: #3d6849;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+        }
+
+        .bar-label {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            fill: #333;
+            text-anchor: middle;
+        }
+
+        .annotation-box {
+            fill: #f8f9fa;
+            stroke: #4a7c59;
+            stroke-width: 2;
+            rx: 5;
+        }
+
+        .annotation-title {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            fill: #4a7c59;
+            text-anchor: middle;
+        }
+
+        .annotation-value {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            fill: #4a7c59;
+            text-anchor: middle;
+        }
+
+        .annotation-detail {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 12px;
+            fill: #666;
+            text-anchor: middle;
+        }
+
+        .chart-caption {
+            text-align: center;
+            color: #666;
+            font-size: 0.95rem;
+            margin-top: 1.5rem;
+            font-style: italic;
+        }
+
         footer {
             text-align: center;
             padding: 2rem;
@@ -457,11 +576,55 @@
 
                 <p><strong>Unified Project Management Tools:</strong> Consolidated the various tools and spreadsheets teams were using into a unified project management platform, creating a single source of truth for project status and eliminating duplicate data entry.</p>
 
-                <div class="image-showcase">
-                    <div class="image-placeholder">
-                        <img src="images/projects/workflow-redesign/quality-control.png" alt="Quality Control">
-                    </div>
-                    <p class="image-caption">Documentation of Quality Control standards</p>
+                <div class="chart-container">
+                    <h3 class="chart-title">Project Hours: Budgeted vs. Actual</h3>
+                    <svg class="hours-chart" viewBox="0 0 600 350" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Y-axis labels -->
+                        <text x="40" y="50" class="axis-label" text-anchor="end">80</text>
+                        <text x="40" y="110" class="axis-label" text-anchor="end">60</text>
+                        <text x="40" y="170" class="axis-label" text-anchor="end">40</text>
+                        <text x="40" y="230" class="axis-label" text-anchor="end">20</text>
+                        <text x="40" y="290" class="axis-label" text-anchor="end">0</text>
+                        
+                        <!-- Grid lines -->
+                        <line x1="50" y1="50" x2="550" y2="50" class="grid-line"/>
+                        <line x1="50" y1="110" x2="550" y2="110" class="grid-line"/>
+                        <line x1="50" y1="170" x2="550" y2="170" class="grid-line"/>
+                        <line x1="50" y1="230" x2="550" y2="230" class="grid-line"/>
+                        <line x1="50" y1="290" x2="550" y2="290" class="grid-line"/>
+                        
+                        <!-- Axes -->
+                        <line x1="50" y1="50" x2="50" y2="290" class="axis"/>
+                        <line x1="50" y1="290" x2="550" y2="290" class="axis"/>
+                        
+                        <!-- Budgeted Hours Bar (82 hours) - Gray -->
+                        <rect x="150" y="56" width="80" height="234" class="bar-budgeted">
+                            <title>Budgeted: 82 hours</title>
+                        </rect>
+                        <text x="190" y="45" class="bar-label">82</text>
+                        
+                        <!-- Actual Hours Bar (38 hours) - Green -->
+                        <rect x="250" y="152" width="80" height="138" class="bar-actual">
+                            <title>Actual: 38 hours</title>
+                        </rect>
+                        <text x="290" y="141" class="bar-label">38</text>
+                        
+                        <!-- X-axis labels -->
+                        <text x="190" y="315" class="category-label">Budgeted Hours</text>
+                        <text x="290" y="315" class="category-label">Actual Hours</text>
+                        
+                        <!-- Savings annotation -->
+                        <g class="savings-annotation">
+                            <rect x="370" y="100" width="160" height="80" class="annotation-box"/>
+                            <text x="450" y="125" class="annotation-title">Efficiency Gained</text>
+                            <text x="450" y="150" class="annotation-value">53% Under Budget</text>
+                            <text x="450" y="170" class="annotation-detail">43 hours saved</text>
+                        </g>
+                        
+                        <!-- Y-axis label -->
+                        <text x="20" y="170" class="y-axis-label" transform="rotate(-90, 20, 170)">Hours</text>
+                    </svg>
+                    <p class="chart-caption">Standardized handoff process enabled significant time savings, completing the project in 38 hours versus the 82-hour budget</p>
                 </div>
 
                 <h2>Cross-Functional Collaboration Approach</h2>
